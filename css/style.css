@@ -302,7 +302,7 @@
 
 @media screen and (max-width: 1550px) {
    .you-will__hand {
-      height: 80%;
+      height: 90%;
       transition: 1s;
    }
 }
@@ -326,6 +326,14 @@
 @media screen and (max-width: 1130px) {
    .you-will__hand {
       right: -520px;
+      height: 80%;
+      transition: 1s;
+   }
+}
+
+@media screen and (max-width: 450px) {
+   .you-will__hand {
+      right: -620px;
       height: 80%;
       transition: 1s;
    }
@@ -372,8 +380,7 @@
    flex-wrap: wrap;
    justify-content: space-between;
    flex: 0 1 20%;
-   row-gap: 10px;
-
+   gap: 20px;
 }
 
 .card-order-2 {
@@ -392,7 +399,7 @@
    display: flex;
    flex-direction: column;
    flex: 1 1 35%;
-   min-width: 380px;
+   min-width: 230px;
    max-width: 672px;
 }
 
@@ -434,12 +441,20 @@
    flex: 0 1 30%;
    min-width: 380px;
    max-height: 430px;
-
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 820px) {
    .card-column__picture {
       margin: 0 auto;
+   }
+}
+
+@media screen and (max-width: 420px) {
+   .card-column__picture {
+      display: flex;
+      flex: 0 1 30%;
+      min-width: 300px;
+      max-height: 350px;
    }
 }
 
@@ -447,6 +462,15 @@
    display: flex;
    flex: 0 1 30%;
    filter: drop-shadow(10px 15px 30px rgba(160, 160, 160, 0.267));
+}
+
+@media screen and (max-width: 420px) {
+   .picture-card-column {
+      display: flex;
+      flex: 0 1 30%;
+      min-width: 300px;
+      max-height: 350px;
+   }
 }
 
 /* what-features ===================================================================================================== */
@@ -542,10 +566,10 @@
    }
 }
 
-
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 420px) {
    .your-security {
       background: url('../img/your-security/backgraund.png') -350px 0px no-repeat;
+      background-size: cover;
       padding: 6.77% 0 9.8% 0;
    }
 }
@@ -564,135 +588,108 @@
    letter-spacing: -0.02em;
    color: #FFFFFF;
    margin-bottom: 3.4%;
-
 }
 
-.your-security__list {}
+/* ======================================================= */
 
+.your-security__list {
+   max-width: max-content;
+}
 
 .list {
-
    max-width: 640px;
-
-}
-
-.list__item:not(:last-child) {
-   border-bottom: 1px solid rgba(255, 255, 255, 0.233);
-
 }
 
 .list__item {
-   background: url('../img/your-security/Vector-down.svg') right center no-repeat;
    padding: 32px 0 32px 0;
    font-style: normal;
    font-weight: 600;
    font-size: 22px;
    line-height: 32px;
    letter-spacing: -0.01em;
+
+}
+
+.list__item:not(:last-child) {
+   border-bottom: 1px solid rgba(255, 255, 255, 0.233);
+}
+
+.list__item input {
+   position: absolute;
+   opacity: 0;
+}
+
+.list__item label {
+   position: relative;
+   display: block;
+   cursor: pointer;
+   font-style: normal;
+   font-weight: 600;
+   font-size: 22px;
+   line-height: 32px;
+   letter-spacing: -0.01em;
    color: #D3D9D8;
-   overflow: hidden;
 }
 
-.list__item:active {
-   background: url('../img/your-security/Vector-up.svg') right 40px no-repeat;
-   color: #ffffff;
+.item-content {
+   max-height: 0;
+   overflow: hidden;
+   transition: max-height .40s;
+   font-family: 'Poppins';
+   font-style: normal;
+   font-weight: 400;
+   font-size: 16px;
+   color: #D3D9D8;
 }
 
-.item-list-1::after {
-   overflow: hidden;
+.item-content p {
+   margin-top: 16px;
+}
+
+.list__item input:checked~.item-content {
+   max-height: max-content;
+}
+
+.list__item label::after {
+   position: absolute;
+   right: 0;
+   top: 0;
+   display: block;
+   width: 3em;
+   height: 3em;
+   line-height: 3;
+   text-align: center;
+   -webkit-transition: all .40s;
+   -o-transition: all .40s;
+   transition: all .40s;
+}
+
+.list__item input[type=checkbox]+label::after {
    content: "";
-   padding-top: 16px;
-   font-style: normal;
-   font-weight: 400;
-   font-size: 16px;
-   line-height: 28px;
-   letter-spacing: -0.01em;
-   color: #D3D9D8;
-   display: none;
-   transition: 1s;
-   transform: translate(0, 0px);
+   padding: 10px;
+   transform: translate(25%, -25%);
+   background: url('../img/your-security/Vector-down.svg') center no-repeat;
+
 }
 
-.item-list-1:active::after {
-   content: "Ezcashew is not collecting your real bank or card information.We never ask, access or store sensitive information like credit card numbers or social security numbers.";
-   display: block;
-   position: relative;
-   color: #85969600;
-   transform: translate(0, 0px);
-   animation-name: list-target;
-   animation-duration: 0.5s;
-   animation-fill-mode: forwards;
-   animation-timing-function: ease-in;
-}
-
-.item-list-2::after {
-   overflow: hidden;
+.list__item input[type=radio]+label::after {
    content: "";
-   padding-top: 16px;
-   font-style: normal;
-   font-weight: 400;
-   font-size: 16px;
-   line-height: 28px;
-   letter-spacing: -0.01em;
-   color: #D3D9D8;
-   display: none;
-   transition: 1s;
-   transform: translate(0, 0px);
+
 }
 
-.item-list-2:active::after {
-   content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe rerum expedita quia quibusdam! Ipsa ipsum ab veritatis nemo tempore fugit corporis culpa. Reiciendis reprehenderit quos laboriosam ipsam, repellendus alias iusto!";
-   display: block;
-   position: relative;
-   color: #85969600;
-   transform: translate(0, 0px);
-   animation-name: list-target;
-   animation-duration: 0.5s;
-   animation-fill-mode: forwards;
-   animation-timing-function: ease-in;
+.list__item input[type=checkbox]:checked+label::after {
+   transform: translate(25%, -25%);
+   background: url('../img/your-security/Vector-up.svg') center no-repeat;
+}
+
+.list__item input[type=radio]:checked+label::after {
+   transform: rotate(180deg);
 }
 
 
-.item-list-3::after {
-   overflow: hidden;
-   content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe rerum expedita quia quibusdam! Ipsa ipsum ab veritatis nemo tempore fugit corporis culpa. Reiciendis reprehenderit quos laboriosam ipsam, repellendus alias iusto!";
-   padding-top: 16px;
-   font-style: normal;
-   font-weight: 400;
-   font-size: 16px;
-   line-height: 28px;
-   letter-spacing: -0.01em;
-   color: #D3D9D8;
-   display: none;
-   transition: 1s;
-   transform: translate(0, 0px);
-}
+/* ========================================================= */
 
-.item-list-3:active::after {
-   content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe rerum expedita quia quibusdam! Ipsa ipsum ab veritatis nemo tempore fugit corporis culpa. Reiciendis reprehenderit quos laboriosam ipsam, repellendus alias iusto! Ezcashew is not collecting your real bank or card information.We never ask, access or store sensitive information like credit card numbers or social security numbers.";
-   display: block;
-   position: relative;
-   color: #85969600;
-   transform: translate(0, 0px);
-   animation-name: list-target;
-   animation-duration: 0.5s;
-   animation-fill-mode: forwards;
-   animation-timing-function: ease-in;
-}
-
-@keyframes list-target {
-   0% {}
-
-   100% {
-      color: #D3D9D8;
-      transform: translate(0, 0px);
-      animation-duration: 1s;
-   }
-}
-
-.your-security__picture-card {}
-
-
+/* dont-miss ===================================================================================================== */
 
 .dont-miss {
    padding: 6.666% 0 7.55% 0;
@@ -737,9 +734,13 @@
    min-width: 200px;
    background: #ffffff;
    border-radius: 40px;
+   transition: 0.2s;
 }
 
-.card-row-dont-miss__text {}
+.card-row-dont-miss:hover {
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.075);
+   transition: 0.2s;
+}
 
 .namber-card {
    display: block;
@@ -1027,11 +1028,11 @@
 
 .button {
    -webkit-transition: all 100ms ease-in-out;
-   transition: all 100ms ease-in-out;
+   transition: all 150ms ease-in-out;
 }
 
 .button:hover {
-   box-shadow: 0 0 5px 0 #01584A inset, 0 0 5px 4px #01584A;
+   box-shadow: 0 0 5px 0 #01584A inset, 0 0 3px 2px #01584A;
 }
 
 .button:active {
